@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'nav.css' %}">
+    <title>Document</title>
+</head>
+<body>
+  <div id="main">
+    <nav>
+        <a href="">HOME</a>
+        <a href="">ABOUT</a>
+        <a href="">SKILLS</a>
+        <a href="">PROJECT</a>
+        <a href="">CONTACT</a>
+    </nav>
+    <div id="page1">
+        <h1>hellow;</h1>
+        <p> welcome to my portal and i dont want to sat hey </p>
+        <div id="about">
+            <h1>ABOUT</h1>
+            <h2>,</h2>
+            <p data-bg-color="#353535" data-fg-color="red">"I am a curious and adaptable individual who loves taking up new challenges. I am enthusiastic about exploring the intersections of design and technology. During my educational journey, I discovered my passion for UI/UX design and coding, which led me to pursue a career in this dynamic field."</p>
+        </div></div>
+     </div>
+  </div>
+  <div id="page2">
+ 
+    
+
+  </div>
+   
+  <section id="horizontal">
+    <h2> project</h2>
+
+    <div class="container">
+      
+        <div class="horizontal_content">
+            <div class="horizontal_item">
+             
+                <div class="horizontal_num">
+                    
+                    <h1> MACHINE LEARNING </h1>
+                    <P> Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis fugit sed cum odit! Culpa, quisquam. Officia dolores possimus autem illum dolorum. Voluptatem ipsa necessitatibus laborum rem deleniti minima a quibusdam?</P>
+                <a href=""> </a>
+                </div>
+            </div>
+            <div class="horizontal_item">
+                <div class="horizontal_num">
+                    <h1> MACHINE LEARNING </h1>
+                    <P> i like to say something in machine learing and athr part of the odjevta thdt  bgfin</P>
+                </div>
+            </div>
+            <div class="horizontal_item">
+                <div class="horizontal_num"> <h1> MACHINE LEARNING </h1>
+                    <P> i like to say something in machine learing and athr part of the odjevta thdt  bgfin</P></div>
+            </div>
+            <div class="horizontal_item">
+                <div class="horizontal_num"> <h1> MACHINE LEARNING </h1>
+                    <P> i like to say something in machine learing and athr part of the odjevta thdt  bgfin</P></div>
+            </div>
+            <div class="horizontal_item">
+                <div class="horizontal_num"> <h1> MACHINE LEARNING </h1>
+                    <P> i like to say something in machine learing and athr part of the odjevta thdt  bgfin</P></div>
+            </div>
+           
+        </div>
+    </div>
+    </section>
+    
+  
+  <div id="page4">
+    <div class="ele1"><h2>lets get in <br>touch</h2></div>
+    <div class="ele1"> <form action="" method="get"> hello</form></div>
+    
+  </div>
+
+  
+</header>
+<script src="https://unpkg.com/split-type"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.3"></script>
+
+ <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#page1 h1", {
+        y: 30,
+        deplay: 0.6,
+        duration: 0.8,
+        stagger: 0.4,
+    });
+
+    const splitTypes = document.querySelectorAll('#about p');
+
+    splitTypes.forEach((char, i) => {
+        const bg = char.dataset.bgColor;
+        const fg = char.dataset.fgColor;
+
+        const text = new SplitType(char, { types: 'chars' });
+
+        gsap.fromTo(text.chars, {
+            color: bg,
+        },
+        {
+            color: fg,
+            duration: 0.3,
+            stagger: 0.02,
+            scrollTrigger: {
+                trigger: char,
+                start: 'top 80%',
+                end: 'top 10%',
+                scrub: true,
+                markers: false,
+                toggleActions: 'play play reverse reverse'
+            }
+        });
+    });
+    gsap.registerPlugin(ScrollTrigger);
+    const section_2 = document.getElementById("horizontal");
+    let box_items = gsap.utils.toArray(".horizontal_item");
+
+    gsap.to(box_items, {
+        xPercent: -70 * (box_items.length - 1),
+        ease: "sine.out",
+        scrollTrigger: {
+            trigger: section_2,
+            pin: true,
+            scrub: 1,
+            snap: 1 / (box_items.length - 1),
+            end: () => `+=${section_2.scrollWidth - window.innerWidth}`, // Adjust the end value
+        }
+    });
+</script>
+
+ 
+</script>
+</body>
+</html>
+
+
+
